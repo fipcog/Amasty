@@ -1,11 +1,11 @@
 <?php
 
-namespace Amasty\SnitkoArtur\Controller\Page;
+namespace Amasty\SnitkoArtur\Controller\Form;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\View\Result\PageFactory;
 
-class view implements HttpGetActionInterface
+class Form implements HttpGetActionInterface
 {
     protected $resultPageFactory;
 
