@@ -2,9 +2,24 @@
 /** @var Amasty\SnitkoArtur\Block\Form $block */
 ?>
 
-<form name="form" class="<?= $block->getData("main.form") ?>">
-    <input type="text" class="<?= $block->getData("form.sku") ?>"  name="sku">
-    <input type="text" class="<?= $block->getData("form.qty") ?>" name="qty">
+<form name="form" method="get" action="<?= $block->getUrl('artur/checkout/checkout') ?>" class="<?= $block->getData("main.form") ?>"
+      data-mage-init='{"validation":{
+          "rules":{
+            "sku":{
+                "required":true
+            },
+            "qty":{
+                "required":true,
+                "validate-greater-than-zero":true
+            }
+          }
+      }}'>
+    <input type="text" class="<?= $block->getData("form.sku") ?>"  name="sku" id="sku">
+
+    <?php if($block->isQtyEnabled()) { ?>
+        <input type="text" class="<?= $block->getData("form.qty") ?>" name="qty" id="qty" value="<?= $block->getQtyNumber() ?>">
+    <?php }; ?>
+
     <div>
         <?= $block->getChildHtml('Amasty_SnitkoArtur.additional')?>
     </div>

@@ -5,7 +5,7 @@ namespace Amasty\SnitkoArtur\Block;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 
-class Form extends Template
+class Greeting extends Template
 {
     /**
      * @var ScopeConfigInterface
@@ -22,11 +22,7 @@ class Form extends Template
         $this->scopeConfig = $scopeConfig;
     }
 
-    public function isQtyEnabled () {
-        return $this->scopeConfig->isSetFlag('artur_module_config/general/show_quantity');
-    }
-
-    public function getQtyNumber () {
-        return $this->scopeConfig->getValue('artur_module_config/general/quantity');
+    public function getGreetingText () {
+        return $this->scopeConfig->getValue('artur_module_config/general/greeting_text');
     }
 }

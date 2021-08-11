@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <system>
+        <tab id="Amasty_SnitkoArtur" translate="label" sortOrder="10">
+            <label>Snitko Artur's module</label>
+        </tab>
+
+        <section id="artur_module_config" translate="label" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Snitko Artur's module config</label>
+            <tab>Amasty_SnitkoArtur</tab>
+            <resource>Amasty_SnitkoArtur::config</resource>
+            <group id="general" translate="label" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="module_enabled" type="select" translate="label" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>The module is</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="greeting_text" type="textarea" translate="label" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Greeting</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="module_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="show_quantity" type="select" translate="label" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Is quantity showed</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="module_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="quantity" type="text" translate="label" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default quantity</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="module_enabled">1</field>
+                        <field id="show_quantity">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
