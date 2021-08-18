@@ -1,8 +1,8 @@
 <?php
-/** @var Amasty\SnitkoArtur\Block\Form $block */
+/** @var Amasty\SecondSnitkoArtur\Block\Form $block */
 ?>
 
-<form name="form" method="get" action="<?= $block->getUrl('artur/checkout/checkout') ?>" class="<?= $block->getData("main.form") ?>"
+<form name="form" method="get" action="<?= $block->getUrl('secondartur/checkout/checkout') ?>" class="<?= $block->getData("main.form") ?>"
       data-mage-init='{"validation":{
           "rules":{
             "sku":{
@@ -24,7 +24,7 @@
     <?php }; ?>
 
     <div>
-        <?= $block->getChildHtml('Amasty_SnitkoArtur.additional')?>
+        <?= $block->getChildHtml('Amasty_SecondSnitkoArtur.additional')?>
     </div>
     <button class="<?= $block->getData("form.btn") ?>">Submit</button>
 </form>
@@ -35,8 +35,8 @@
             "Magento_Ui/js/core/app": {
                 "components": {
                     "autocomplete": {
-                        "component": "Amasty_SnitkoArtur/js/koAutocomplete",
-                        "template": "Amasty_SnitkoArtur/koAutocomplete"
+                        "component": "Amasty_SecondSnitkoArtur/js/koAutocomplete",
+                        "template": "Amasty_SecondSnitkoArtur/koAutocomplete"
                     }
                 }
             }

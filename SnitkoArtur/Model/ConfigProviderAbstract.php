@@ -1,6 +1,6 @@
 <?php
 
-namespace Amasty\SnitkoArtur\UI;
+namespace Amasty\SnitkoArtur\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 
@@ -18,5 +18,7 @@ abstract class ConfigProviderAbstract
         $this->scopeConfig = $scopeConfig;
     }
 
-    abstract public function getValue ($path, $scope);
+    public function getValue ($path, $scope = "store") {
+        return $this->scopeConfig->getValue($this->pathPrefix.$path);
+    }
 }
