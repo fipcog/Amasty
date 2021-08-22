@@ -2,7 +2,7 @@
 /** @var Amasty\SnitkoArtur\Block\Form $block */
 ?>
 
-<form name="form" method="get" action="<?= $block->getUrl('artur/checkout/checkout') ?>" class="<?= $block->getData("main.form") ?>"
+<form name="form" method="get" action="<?= $block->getFormAction() ?>" class="<?= $block->getData("main.form") ?>"
       data-mage-init='{"validation":{
           "rules":{
             "sku":{

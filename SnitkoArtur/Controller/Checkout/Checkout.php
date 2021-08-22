@@ -7,6 +7,7 @@ use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\App\Action\Context;
 use Magento\Checkout\Model\Session as CheckoutSession;
 use Magento\Catalog\Api\ProductRepositoryInterface;
+use Magento\Framework\Event\ManagerInterface as EventManager;
 
 class Checkout extends Action
 {
@@ -20,15 +21,22 @@ class Checkout extends Action
      */
     protected $productRepository;
 
+    /**
+     * @var EventManager
+     */
+    protected $eventManager;
+
     public function __construct(
         Context $context,
         CheckoutSession $session,
-        ProductRepositoryInterface $productRepository
+        ProductRepositoryInterface $productRepository,
+        EventManager $eventManager
     )
     {
         parent::__construct($context);
         $this->session = $session;
         $this->productRepository = $productRepository;
+        $this->eventManager = $eventManager;
     }
 
     public function execute()
@@ -44,6 +52,11 @@ class Checkout extends Action
         if ($this->validateProduct($product, $qty)) {
             $this->addInCart($quote, $product, $qty);
         }
+
+        $this->eventManager->dispatch(
+            'amasty_snitkoartur_add_promo',
+            ['request' => $this->getRequest()]
+        );
 
         return $redirect->setPath("artur/form/form");
     }
