@@ -1,6 +1,6 @@
 <?php
 
-namespace Amasty\SnitkoArtur\Controller\Checkout;
+namespace Amasty\SecondSnitkoArtur\Controller\Checkout;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\Controller\ResultFactory;
@@ -45,7 +45,7 @@ class Checkout extends Action
             $this->addInCart($quote, $product, $qty);
         }
 
-        return $redirect->setPath("artur/form/form");
+        return $redirect->setPath("secondartur/form/form");
     }
 
     protected function getParams () {

@@ -1,1 +1,18 @@
-<p>Здесь будет таймер</p>
+<div class="timer-wrapper" data-bind="scope: 'timer'">
+    <!--ko template: getTemplate()--><!--/ko-->
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "timer": {
+                        "component": "Amasty_SnitkoArtur/js/koTimer",
+                        "template": "Amasty_SnitkoArtur/koTimer"
+                    }
+                }
+            }
+        }
+    }
+</script>
