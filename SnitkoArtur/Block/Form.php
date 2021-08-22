@@ -12,6 +12,8 @@ class Form extends Template
      */
     protected $scopeConfig;
 
+    const FORM_ACTION = 'artur/checkout/checkout';
+
     public function __construct(
         Template\Context $context,
         ScopeConfigInterface $scopeConfig,
@@ -28,5 +30,9 @@ class Form extends Template
 
     public function getQtyNumber () {
         return $this->scopeConfig->getValue('artur_module_config/general/quantity');
+    }
+
+    public function getFormAction () {
+        return $this->getUrl(self::FORM_ACTION);
     }
 }

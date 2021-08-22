@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/di.xsd">
+<!--    <type name="Amasty\SnitkoArtur\Block\Form">-->
+<!--        <plugin name="changeAction" type="Amasty\SecondSnitkoArtur\Plugin\ChangeAction"/>-->
+<!--    </type>-->
+    <type name="Magento\Checkout\Controller\Cart\Add">
+        <plugin name="addDataToRequest" type="Amasty\SecondSnitkoArtur\Plugin\AddDataToRequest"/>
+    </type>
+</config>
