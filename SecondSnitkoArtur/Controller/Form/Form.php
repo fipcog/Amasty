@@ -2,37 +2,35 @@
 
 namespace Amasty\SecondSnitkoArtur\Controller\Form;
 
-use Magento\Framework\App\Action\HttpGetActionInterface;
-use Magento\Framework\View\Result\PageFactory;
+use Amasty\SnitkoArtur\Controller\Form\Form as BasicForm;
+use Magento\Customer\Model\Session;
 use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\View\Result\PageFactory;
 
-class Form implements HttpGetActionInterface
+class Form extends BasicForm
 {
     /**
-     * @var PageFactory
+     * @var Session
      */
-    protected $resultPageFactory;
+    protected $customerSession;
 
-    /**
-     * @var ScopeConfigInterface
-     */
-    protected $scopeConfig;
-
-    public function __construct(
+    public function __construct
+    (
         PageFactory $resultPageFactory,
-        ScopeConfigInterface $scopeConfig
+        ScopeConfigInterface $scopeConfig,
+        Session $customerSession
     )
     {
-        $this->resultPageFactory = $resultPageFactory;
-        $this->scopeConfig = $scopeConfig;
+        parent::__construct($resultPageFactory, $scopeConfig);
+        $this->customerSession = $customerSession;
     }
 
     public function execute()
     {
-        if($this->scopeConfig->isSetFlag('artur_module_config/general/module_enabled')) {
-            return $this->resultPageFactory->create();
+        if($this->customerSession->isLoggedIn()) {
+            return parent::execute();
         } else {
-            die('Module is disabled');
+            die('You are not logged in');
         }
     }
 }
