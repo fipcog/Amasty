@@ -3,6 +3,6 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/di.xsd">
     <type name="Amasty\SecondSnitkoArtur\Observer\AddPromoObserver">
-        <plugin name="stopIfAjax" type="Amasty\SnitkoArtur\Plugin\StopIfAjax"/>
+<!--        <plugin name="stopIfAjax" type="Amasty\SnitkoArtur\Plugin\StopIfAjax"/>-->
     </type>
 </config>

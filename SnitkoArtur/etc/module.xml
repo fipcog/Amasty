@@ -2,5 +2,5 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Amasty_SnitkoArtur"/>
+    <module name="Amasty_SnitkoArtur" setup_version="0.0.2"/>
 </config>
