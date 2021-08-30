@@ -14,14 +14,14 @@ class UpgradeSchema implements UpgradeSchemaInterface
     {
         $setup->startSetup();
 
-        if(version_compare($context->getVersion(), '0.0.2', '<')) {
+        if(version_compare($context->getVersion(), '0.0.3', '<')) {
             $setup->getConnection()->addColumn(
                 $setup->getTable(InstallSchema::TABLE_NAME),
-                'Test',
+                'Mail',
                 [
                     'type' => Table::TYPE_TEXT,
-                    'size' => 50,
-                    'comment' => 'Column for testing upgrade schema'
+                    'size' => 1000,
+                    'comment' => 'Body of blacklist mail'
                 ]
             );
         }

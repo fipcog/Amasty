@@ -6,13 +6,12 @@ use Amasty\SnitkoArtur\Model\Blacklist;
 use Amasty\SnitkoArtur\Model\BlacklistFactory;
 use Amasty\SnitkoArtur\Model\BlacklistRepository;
 use Amasty\SnitkoArtur\Model\ResourceModel\Blacklist as BlacklistResource;
-use Magento\Framework\App\Action\Action;
-use Magento\Framework\App\Action\Context;
-use Magento\Framework\Event\ManagerInterface as EventManager;
-use Magento\Framework\Controller\ResultFactory;
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Checkout\Model\Session as CheckoutSession;
-
+use Magento\Framework\App\Action\Action;
+use Magento\Framework\App\Action\Context;
+use Magento\Framework\Controller\ResultFactory;
+use Magento\Framework\Event\ManagerInterface as EventManager;
 
 
 class Checkout extends Action

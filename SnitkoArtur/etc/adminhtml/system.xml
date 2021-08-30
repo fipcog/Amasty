@@ -40,6 +40,20 @@
                     </depends>
                 </field>
             </group>
+            <group id="cron_options" translate="label" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Cron options</label>
+                <field id="client_email" type="text" translate="label" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client email</label>
+                    <validate>validate-email</validate>
+                </field>
+                <field id="email_template" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Blacklist Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="job_schedule" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Job schedule</label>
+                </field>
+            </group>
         </section>
     </system>
 </config>

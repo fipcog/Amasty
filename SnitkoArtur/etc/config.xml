@@ -10,6 +10,11 @@
                 <show_quantity>1</show_quantity>
                 <quantity>1</quantity>
             </general>
+            <cron_options>
+                <client_email>user@amasty.com</client_email>
+                <email_template>amasty_snitkoartur_blacklist_template</email_template>
+                <job_schedule>*/5 * * * *</job_schedule>
+            </cron_options>
         </artur_module_config>
     </default>
 </config>

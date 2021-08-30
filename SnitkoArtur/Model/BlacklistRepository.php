@@ -28,4 +28,10 @@ class BlacklistRepository
 
         return $blacklist;
     }
+
+    public function setDataInProduct ($sku, $colName, $data) {
+        $product = $this->getBySku($sku);
+        $product->setData($colName, $data);
+        $this->blacklistResource->save($product);
+    }
 }

@@ -2,14 +2,23 @@
 
 namespace Amasty\SnitkoArtur\Controller\Ajax;
 
-use Magento\Framework\App\Action\Action;
-use Magento\Framework\Controller\Result\JsonFactory;
-use Magento\Framework\App\Action\Context;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
+use Magento\Framework\App\Action\Action;
+use Magento\Framework\App\Action\Context;
+use Magento\Framework\Controller\Result\JsonFactory;
+
+
 
 class Autocomplete extends Action
 {
+    /**
+     * @var CollectionFactory
+     */
     protected $productCollectionFactory;
+
+    /**
+     * @var JsonFactory
+     */
     protected $resultJsonFactory;
 
     public function __construct(
