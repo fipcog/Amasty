@@ -3,8 +3,9 @@
 namespace Amasty\SnitkoArtur\Controller\Form;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;
-use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\View\Result\PageFactory;
+
 
 class Form implements HttpGetActionInterface
 {

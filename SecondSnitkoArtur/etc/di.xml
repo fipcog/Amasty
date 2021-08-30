@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/events.xsd">
+<!--    <preference for="Amasty\SnitkoArtur\Controller\Form\Form" type="Amasty\SecondSnitkoArtur\Controller\Form\Form" />-->
+</config>

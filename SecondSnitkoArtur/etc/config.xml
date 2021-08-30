@@ -3,13 +3,11 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <default>
-        <artur_module_config>
+        <artur_second_module_config>
             <general>
-                <module_enabled>1</module_enabled>
-                <greeting_text>Hello!</greeting_text>
-                <show_quantity>1</show_quantity>
-                <quantity>1</quantity>
+                <promo_sku>Promo</promo_sku>
+                <for_sku>24-MB01, 24-MB02, 24-MB03</for_sku>
             </general>
-        </artur_module_config>
+        </artur_second_module_config>
     </default>
 </config>

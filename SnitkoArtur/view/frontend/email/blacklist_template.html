@@ -1,0 +1,23 @@
+<!--@subject Blacklist Notification @-->
+
+<!--@vars
+    {
+        "var blacklist_product": "Product",
+        "var product_sku": "Sku",
+        "var product_qty": "Quantity"
+    }
+@-->
+
+{{template config_path="design/email/header_template"}}
+
+<p>{{trans "Product which has sku: %sku from blacklist" sku=$product_sku}}</p>
+<div>{{layout
+        handle="amasty_snitkoartur_blacklistemail"
+        blacklist_product=$blacklist_product
+        area="frontend"
+    }}
+</div>
+<p>Qty: {{var product_qty}}</p>
+
+
+{{template config_path="design/email/footer_template"}}

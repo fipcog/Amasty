@@ -2,14 +2,23 @@
 
 namespace Amasty\SnitkoArtur\Controller\Ajax;
 
-use Magento\Framework\App\Action\Action;
-use Magento\Framework\Controller\Result\JsonFactory;
-use Magento\Framework\App\Action\Context;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
+use Magento\Framework\App\Action\Action;
+use Magento\Framework\App\Action\Context;
+use Magento\Framework\Controller\Result\JsonFactory;
+
+
 
 class Autocomplete extends Action
 {
+    /**
+     * @var CollectionFactory
+     */
     protected $productCollectionFactory;
+
+    /**
+     * @var JsonFactory
+     */
     protected $resultJsonFactory;
 
     public function __construct(
@@ -29,14 +38,12 @@ class Autocomplete extends Action
         $result = $this->resultJsonFactory->create();
 
         $queryText = $this->getQueryText();
-        $collection = $this->getCollectionWithExtraAttr();
+        $productCollection = $this->getProductCollectionBySku($queryText);
 
-        foreach ($collection as $product) {
+        foreach ($productCollection as $product) {
             $sku = $product->getSku();
-            if(strpos($sku, $queryText) !== false) {
-                $name = $product->getName();
-                array_push($response, ["sku" => $sku, "name" => $name]);
-            }
+            $name = $product->getName();
+            array_push($response, ["sku" => $sku, "name" => $name]);
         }
 
         return $result->setData($response);
@@ -47,7 +54,10 @@ class Autocomplete extends Action
         return $params['qText'];
     }
 
-    protected function getCollectionWithExtraAttr () {
-        return $this->productCollectionFactory->create()->addAttributeToSelect('*');
+    protected function getProductCollectionBySku ($sku) {
+        return $this->productCollectionFactory->create()
+                                                ->addAttributeToSelect(['name'])
+                                                ->addAttributeToFilter('sku', ['like' => $sku . '%'], ['like' => '%' . $sku])
+                                                ->setPageSize(20);
     }
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="artur_group">
+        <job name="amasty_snitkoartur_blacklist_notification" instance="Amasty\SnitkoArtur\Cron\SendBlacklistEmail" method="execute" >
+            <config_path>artur_module_config/cron_options/job_schedule</config_path>
+        </job>
+    </group>
+</config>
